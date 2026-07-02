@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12203A">
+<title>Comprovante de Entrega</title>
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<header class="topo">
+  <h1>📦 Comprovante de Entrega</h1>
+  <div class="status-wrap">
+    <span id="statusDot" class="dot dot-offline"></span>
+    <span id="statusTexto">Carregando…</span>
+    <span id="badgePendentes" class="badge hidden">0</span>
+  </div>
+</header>
+
+<main>
+  <div id="aviso" class="aviso hidden"></div>
+
+  <form id="formEntrega">
+    <div class="campo">
+      <div class="eyebrow"><span class="num">01</span><label for="motorista">Motorista</label></div>
+      <select id="motorista" required></select>
+    </div>
+
+    <div class="campo">
+      <div class="eyebrow"><span class="num">02</span><label for="pedido">Nº do pedido / nota</label></div>
+      <input type="text" id="pedido" inputmode="numeric" placeholder="Ex: 48213" autocomplete="off" required>
+    </div>
+
+    <div class="campo">
+      <div class="eyebrow"><span class="num">03</span><label>Foto do comprovante</label></div>
+      <input type="file" id="fotoInput" accept="image/*" capture="environment" class="hidden">
+      <label for="fotoInput" class="btn-foto"><span id="fotoRotulo">Tirar foto do comprovante</span></label>
+      <img id="fotoPreview" class="hidden" alt="Prévia da foto">
+    </div>
+
+    <div class="campo">
+      <div class="eyebrow"><span class="num">04</span><label>Assinatura do cliente</label></div>
+      <div class="assinatura-caixa">
+        <canvas id="assinatura"></canvas>
+        <div class="assinatura-rodape">
+          <span>Peça para o cliente assinar com o dedo</span>
+          <button type="button" id="limparAssinatura">Limpar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="campo">
+      <div class="eyebrow"><span class="num">05</span><label for="observacao">Observação (opcional)</label></div>
+      <textarea id="observacao" placeholder="Ex: entregue na portaria"></textarea>
+    </div>
+  </form>
+
+  <div class="secao-historico">
+    <div class="secao-historico-topo">
+      <h2>Últimos comprovantes</h2>
+      <button type="button" id="btnSincronizar">Sincronizar agora</button>
+    </div>
+    <div id="listaHistorico"></div>
+  </div>
+</main>
+
+<div class="barra-envio">
+  <button type="submit" form="formEntrega" class="btn-enviar">Enviar comprovante</button>
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>
