@@ -4,7 +4,7 @@
 // (index.html) e pelo painel do administrador (admin.html).
 // ============================================================
 const CONFIG = {
-  API_URL: 'COLE_AQUI_A_URL_DO_APPS_SCRIPT',
-  TOKEN: 'TROQUE_ESTA_SENHA',
-  MOTORISTAS: ['Motorista 1', 'Motorista 2', 'Motorista 3']
+  API_URL: 'https://script.google.com/macros/s/AKfycbz477RNIaPg1KEXIdoh93S19Vif1GrPc5ye4t_LdijNhj-UGybblUe21Ec_AMmYZG1j/exec',
+  TOKEN: 'HUB-ENTREGAS',
+  MOTORISTAS: ['Mello', 'Vinicius', 'Said']
 };

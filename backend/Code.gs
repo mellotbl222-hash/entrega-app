@@ -16,8 +16,8 @@
  * (lápis) > Nova versão > Implantar — senão as mudanças não valem.
  */
 
-var TOKEN = 'TROQUE_ESTA_SENHA';
-var ADMIN_SENHA = 'TROQUE_ESTA_SENHA_DE_ADMIN';
+var TOKEN = 'HUB-ENTREGAS';
+var ADMIN_SENHA = 'admin3917';
 var NOME_ABA = 'Entregas';
 var NOME_PASTA_DRIVE = 'Comprovantes de Entrega';
 var CABECALHO = ['Data/Hora', 'Motorista', 'Recebedor', 'Observações', 'Foto', 'Assinatura', 'ID', 'Finalizado'];
@@ -27,9 +27,9 @@ var CABECALHO = ['Data/Hora', 'Motorista', 'Recebedor', 'Observações', 'Foto',
 // Para adicionar um motorista novo: acrescente uma linha aqui E
 // no config.js, depois publique uma nova versão (veja o README).
 var SENHAS_MOTORISTAS = {
-  'Motorista 1': '1111',
-  'Motorista 2': '2222',
-  'Motorista 3': '3333'
+  'Mello': '1111',
+  'Vinicius': '2222',
+  'Said': '3333'
 };
 
 function doPost(e) {
