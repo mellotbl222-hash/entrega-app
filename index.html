@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12203A">
+<title>Comprovante de Entrega</title>
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<!-- ================= TELA DE LOGIN ================= -->
+<div id="telaLogin" class="tela-login">
+  <div class="login-card">
+    <h2>📦 Comprovante de Entrega</h2>
+    <p>Identifique-se para começar</p>
+
+    <select id="loginMotoristaSelect"></select>
+    <input type="password" id="loginSenha" placeholder="Sua senha" autocomplete="current-password">
+    <button type="button" id="btnLoginEntrar" class="btn-enviar">Entrar</button>
+
+    <p id="loginErro" class="aviso hidden"></p>
+  </div>
+</div>
+
+<!-- ================= APP PRINCIPAL ================= -->
+<div id="appPrincipal" class="hidden">
+
+  <header class="topo">
+    <h1>📦 Comprovante de Entrega</h1>
+    <div class="status-wrap">
+      <span id="statusDot" class="dot dot-offline"></span>
+      <span id="statusTexto">Carregando…</span>
+      <span id="badgePendentes" class="badge hidden">0</span>
+    </div>
+  </header>
+
+  <div class="motorista-barra">
+    <span id="motoristaLogadoNome"></span>
+    <button type="button" id="btnSairMotorista">Sair</button>
+  </div>
+
+  <main>
+    <div id="aviso" class="aviso hidden"></div>
+
+    <form id="formEntrega">
+      <div class="campo">
+        <div class="eyebrow"><span class="num">01</span><label for="recebedor">Nome do recebedor</label></div>
+        <input type="text" id="recebedor" placeholder="Ex: João Silva" autocomplete="name" autocapitalize="words" required>
+      </div>
+
+      <div class="campo">
+        <div class="eyebrow"><span class="num">02</span><label>Foto do comprovante</label></div>
+        <input type="file" id="fotoInput" accept="image/*" capture="environment" class="hidden">
+        <label for="fotoInput" class="btn-foto"><span id="fotoRotulo">Tirar foto do comprovante</span></label>
+        <img id="fotoPreview" class="hidden" alt="Prévia da foto">
+      </div>
+
+      <div class="campo">
+        <div class="eyebrow"><span class="num">03</span><label>Assinatura do cliente</label></div>
+        <div class="assinatura-caixa">
+          <canvas id="assinatura"></canvas>
+          <div class="assinatura-rodape">
+            <span>Peça para o cliente assinar com o dedo</span>
+            <button type="button" id="limparAssinatura">Limpar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="campo">
+        <div class="eyebrow"><span class="num">04</span><label for="observacao">Observação (opcional)</label></div>
+        <textarea id="observacao" placeholder="Ex: entregue na portaria"></textarea>
+      </div>
+    </form>
+
+    <div class="secao-historico">
+      <div class="secao-historico-topo">
+        <h2>Últimos comprovantes</h2>
+        <button type="button" id="btnSincronizar">Sincronizar agora</button>
+      </div>
+      <div id="listaHistorico"></div>
+    </div>
+
+    <footer class="rodape-discreto">
+      <a href="./admin.html" target="_blank" rel="noopener">Painel do administrador</a>
+    </footer>
+  </main>
+
+  <div class="barra-envio">
+    <button type="submit" form="formEntrega" class="btn-enviar">Enviar comprovante</button>
+  </div>
+
+</div>
+
+<script src="./config.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
